@@ -3293,15 +3293,15 @@ bool CHL2_Player::Weapon_CanUse( CBaseCombatWeapon *pWeapon )
 		switch (HL2GameRules()->GetStunstickPickupBehavior())
 		{
 			// Default, including 0
-			default:
-				{
-					if ( ApplyBattery( 0.5 ) )
-						UTIL_Remove( pWeapon );
-					return false;
-				} break;
+			//default:
+			//	{
+			//	if ( ApplyBattery( 0.5 ) )
+			//			UTIL_Remove( pWeapon );
+			//		return false;
+			//	} break;
 
 			// Allow pickup, if already picked up just apply battery
-			case 1:
+			default:
 				{
 					if ( Weapon_OwnsThisType("weapon_stunstick") )
 					{
@@ -3312,10 +3312,10 @@ bool CHL2_Player::Weapon_CanUse( CBaseCombatWeapon *pWeapon )
 				} break;
 
 			// Don't pickup, don't even apply battery
-			case 2: return false;
+			case 1: return false;
 
 			// Just pickup, never apply battery
-			case 3: break;
+			case 2: break;
 		}
 	}
 #else
